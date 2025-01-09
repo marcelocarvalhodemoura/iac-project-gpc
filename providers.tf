@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  project = "rocketseat-447220"
+  project = "project-ID"
   region  = "us-central1"
   zone    = "us-central1-a"
 }
