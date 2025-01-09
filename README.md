@@ -2,29 +2,35 @@
 
 ## About The Project
 
-This project implements Infrastructure as Code (IaC) for Google Cloud Platform (GCP), enabling automated and version-controlled cloud infrastructure management.
+This Infrastructure as Code (IaC) project automates the deployment and management of Google Cloud Platform resources using Terraform. The infrastructure is version-controlled, maintainable, and follows security best practices.
 
 ## Features
 
-- Automated infrastructure deployment
-- Scalable cloud resources management
-- Infrastructure version control
-- Cost-effective resource utilization
-- Security best practices implementation
+- Automated GCP infrastructure deployment
+- Modular and reusable Terraform configurations
+- State management with remote backend
+- IAM and security policies management
+- Network infrastructure setup
+- Compute resources provisioning
 
 ## Technologies Used
 
-- Terraform
+- Terraform v1.x
 - Google Cloud Platform (GCP)
-- Git
-- [Add other relevant technologies]
+- Google Cloud SDK
+- Git for version control
 
 ## Prerequisites
 
-- Google Cloud Platform Account
-- Terraform installed (version X.X or higher)
-- GCP CLI installed
-- [Add other prerequisites]
+- Google Cloud Platform Account with billing enabled
+- Google Cloud SDK installed and configured
+- Terraform installed (version 1.0 or higher)
+- Git installed
+- GCP Project with required APIs enabled:
+  - Compute Engine API
+  - Cloud Resource Manager API
+  - Identity and Access Management (IAM) API
+  - [Add other required APIs]
 
 ## Getting Started
 
@@ -36,7 +42,8 @@ cd iac-project-gpc
 
 2. Configure GCP credentials
 ```bash
-[Add credential configuration steps]
+gcloud auth application-default login
+export GOOGLE_PROJECT="your-project-id"
 ```
 
 3. Initialize Terraform
@@ -54,27 +61,62 @@ terraform apply
 
 Detailed documentation about the project structure, modules, and configuration options can be found in the `/docs` directory.
 
+## Project Structure
+
+```
+iac-project-gpc/
+├── main.tf           # Main Terraform configuration
+├── variables.tf      # Input variables
+├── outputs.tf        # Output values
+├── provider.tf       # Provider configuration
+├── modules/          # Reusable Terraform modules
+│   ├── networking/   # Network configuration
+│   ├── compute/      # Compute resources
+│   └── storage/      # Storage resources
+└── environments/     # Environment-specific configurations
+    ├── dev/
+    ├── staging/
+    └── prod/
+```
+
 ## Infrastructure Components
 
-- VPC Network
-- Compute Instances
-- Storage Buckets
-- [Add other components]
+- **Network Infrastructure**
+  - VPC Network
+  - Subnets
+  - Firewall Rules
+  - NAT Gateway
+
+- **Compute Resources**
+  - Compute Instances
+  - Instance Templates
+  - Managed Instance Groups
+  - Load Balancers
+
+- **Storage**
+  - Cloud Storage Buckets
+  - Persistent Disks
+
+- **Security**
+  - IAM Roles and Permissions
+  - Service Accounts
+  - Security Policies
 
 ## Security
 
 This project implements security best practices including:
-- IAM roles and permissions
-- Network security
-- Encryption
-- [Add other security measures]
+- Principle of least privilege for IAM roles
+- Network security with proper firewall rules
+- Encrypted storage and communication
+- Regular security audits and updates
 
 ## Best Practices
 
-- Infrastructure versioning
-- Resource naming conventions
-- Cost optimization
-- [Add other best practices]
+- Use of Terraform workspaces for environment management
+- State file stored in remote backend
+- Code modularity and reusability
+- Consistent resource naming conventions
+- Regular infrastructure updates and maintenance
 
 ## Contributing
 
@@ -82,20 +124,18 @@ Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTIN
 
 ## License
 
-This project is licensed under the [LICENSE NAME] - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Authors
 
-- Your Name - Initial work - [@marcelocarvalhodemoura](https://github.com/marcelocarvalhodemoura)
-
-## Acknowledgments
-
-- List any resources, tools, or individuals you'd like to acknowledge
-- [Add acknowledgments]
+- Marcelo Carvalho - [@marcelocarvalhodemoura](https://github.com/marcelocarvalhodemoura)
 
 ## Project Status
 
-[Indicate if the project is actively maintained, in development, or completed]
+Project is actively maintained and in development. Current focus:
+- Implementing additional security features
+- Optimizing resource configurations
+- Adding more automation capabilities
 
 ## Contact
 
